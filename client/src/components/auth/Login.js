@@ -26,6 +26,7 @@ const Login = ({ login, isAuthenticated }) => {
     } 
 
     return (
+        //Change To Lodash Later
         <Fragment>
             <h1 className="large text-primary">Sign In</h1>
             <p className="lead">
