@@ -28,7 +28,7 @@ export const createProfile = (
     formData,
     history,
     edit = false
-  ) => async dispatch => {
+) => async dispatch => {
     try {
         const config = {
             headers: {
