@@ -49,14 +49,14 @@ const EditProfile = ({
     }, [
             loading, 
             getCurrentProfile,
-            profile.bio, 
-            profile.company,
-            profile.githubusername,
-            profile.location,
-            profile.skills,
-            profile.social,
-            profile.status,
-            profile.website
+            // profile.bio, 
+            // profile.company,
+            // profile.githubusername,
+            // profile.location,
+            // profile.skills,
+            // profile.social,
+            // profile.status,
+            // profile.website
         ]
     );
 
