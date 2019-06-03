@@ -48,7 +48,7 @@ const EditProfile = ({
 
     }, [
             loading, 
-            getCurrentProfile, 
+            getCurrentProfile,
             profile.bio, 
             profile.company,
             profile.githubusername,
