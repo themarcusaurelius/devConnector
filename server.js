@@ -10,6 +10,13 @@ connectDB();
 // Init Middleware
 app.use(express.json({ extended: false }))
 
+//Define Routes
+app.use('/api/users', require('./routes/api/users'));
+app.use('/api/auth', require('./routes/api/auth'));
+app.use('/api/profile', require('./routes/api/profile'));
+app.use('/api/posts', require('./routes/api/posts'));
+
+//Serve Static assets in production
 //Configuration for Express to behave correctly in production environment
 if (process.env.NODE_ENV === 'production') {
     //First - Making sure express will serve production assets - main.js, main.css, etc
@@ -19,12 +26,6 @@ if (process.env.NODE_ENV === 'production') {
       res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
     });
 };
-
-//Define Routes
-app.use('/api/users', require('./routes/api/users'))
-app.use('/api/auth', require('./routes/api/auth'))
-app.use('/api/profile', require('./routes/api/profile'))
-app.use('/api/posts', require('./routes/api/posts'))
 
 
 const PORT = process.env.PORT || 5000;
