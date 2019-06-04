@@ -41,7 +41,7 @@ const Profile = ({
                             {profile.experience.map(experience => (
                                 <ProfileExperience 
                                     key={experience._id} 
-                                    experience={experience}
+                                    experience={[experience]}
                                 />
                             ))}
                         </Fragment>) : (<h4>No experience credentials</h4>)}
@@ -52,7 +52,7 @@ const Profile = ({
                             {profile.education.map(education => (
                                 <ProfileEducation
                                     key={education._id} 
-                                    education={education}
+                                    education={[education]}
                                 />
                             ))}
                         </Fragment>) : (<h4>No education credentials</h4>)}
