@@ -1,16 +1,17 @@
 import React, { Fragment, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Spinner from '../layouts/Spinner';
 import PostItem from '../posts/PostItem';
-import { getPost } from '../../actions/post';
 import CommentForm from '../post/CommentForm';
+import CommentItem from '../post/CommentItem';
+import { getPost } from '../../actions/post';
 
 const Post = ({ getPost, post: { post, loading }, match }) => {
     useEffect(() => {
         getPost(match.params.id);
-    }, [getPost])
+    }, [getPost, match.params.id])
 
     return loading || post === null ? (
         <Spinner />
@@ -21,6 +22,11 @@ const Post = ({ getPost, post: { post, loading }, match }) => {
             </Link>
             <PostItem post={post} showActions={false} />
             <CommentForm postId={post._id} />
+            <div className="comments">
+                {post.comments.map(comment => (
+                    <CommentItem key={comment._id} comment={comment} postId={post._id} />
+                ))}
+            </div>
         </Fragment>
     )
 };
@@ -28,7 +34,7 @@ const Post = ({ getPost, post: { post, loading }, match }) => {
 Post.propTypes = {
     getPost: PropTypes.func.isRequired,
     post: PropTypes.object.isRequired,
-}
+};
 
 const mapStateToProps = state => ({
     post: state.post
